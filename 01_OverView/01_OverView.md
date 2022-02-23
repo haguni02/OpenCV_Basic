@@ -23,7 +23,7 @@
 ### OpenCV 주요 모듈
 * <img src="./img/OCV001.png" width="600"/>
 * OpenCV 모듈은 각각 별도의 *.lib 파일과  *.dll 파일로 만들어 짐 (예를 들어 OpenCV 4.0.0 버전인 경우 core 모듈은 opencv_core400.lib 파일과 opencv_core400.dll 파일이 존재)
-* <img src="./img/OCV002.PNG" width="600"/>
+* <img src="./img/OCV002.png" width="600"/>
 
 ### OpenCV 관련 사이트
 * [OpenCV 공식 사이트](https://opencv.org/)
@@ -38,20 +38,20 @@
 > 2) OpenCV 소스 코드를 내려받은 후 직접 빌드하여 설치하는 방법 
 * OpenCV 설치 실행 파일 이용해 설치하기 
 > 1) OpenCV Releases 사이트에서 설치 실행 파일 다운로드
-> 2) 설치 폴더 지정<br/><img src="./img/OCV003.PNG" />
-> 3) 설치 폴더 구조<br/><img src="./img/OCV004.PNG" />
+> 2) 설치 폴더 지정<br/><img src="./img/OCV003.png" />
+> 3) 설치 폴더 구조<br/><img src="./img/OCV004.png" />
 > * C:\opencv\build\x64\vc15\ 
 > > * visual studion 2017 버전으로 빌드된 라이브러리 파일이 있는 폴더 사용
 > > * bin 폴더에는 OpenCV 프로그램 실행 시 필요한 동적 연결 라이브러리 파일과 OpenCV 유틸리티 프로그램 생성 
 > > * lib 폴더에는 DLL 파일이 만들어질 때 함께 생성되는 import library 
 > > * 동적 연결 라이브러리 파일 이름은 opencv_world400.dll, opencv_world400d.dll(~d가 붙으면 디버그 모드에서 사용)
-> 5) OpenCV 응용 프로그램을 실행할 떄 OpenCV DLL 파일이 필요하므로 OpenCV DLL 파일이 있는 폴더를 시스템 환경 변수 PATH에 추가 <br/> <img src="./img/OCV005.PNG" />
-> 6) OpenCV 버전 확인 <br/> <img src="./img/OCV006.PNG" />
+> 5) OpenCV 응용 프로그램을 실행할 떄 OpenCV DLL 파일이 필요하므로 OpenCV DLL 파일이 있는 폴더를 시스템 환경 변수 PATH에 추가 <br/> <img src="./img/OCV005.png" />
+> 6) OpenCV 버전 확인 <br/> <img src="./img/OCV006.png" />
 * OpenCV 추가 모듈을 사용하거나 자신의 컴퓨터 시스템에 최적화된 OpenCV DLL 파일을 사용하려면 OpenCV 소스 코드를 직접 빌드하여 OpenCV 라이브러리 설치 
 
 ### Visual Studio에서 OpenCV 라이브러리 설정
-1) Visual Studio 프로젝트 속성에서 OpenCV 관련 설정 <br/> <img src="./img/OCV007.PNG" />
-2) <img src="./img/OCV008.PNG" />
-3) <img src="./img/OCV009.PNG" />
-4) <img src="./img/OCV010.PNG" />
+1) Visual Studio 프로젝트 속성에서 OpenCV 관련 설정 <br/> <img src="./img/OCV007.png" />
+2) <img src="./img/OCV008.png" />
+3) <img src="./img/OCV009.png" />
+4) <img src="./img/OCV010.png" />
 

@@ -21,7 +21,7 @@
 * BSD 라이선스를 따르고 있어 연구용이나 상업적인 용도로 자유롭게 사용 가능 
 
 ### OpenCV 주요 모듈
-* <img src="./img/OCV001.PNG" width="600"/>
+* <img src="./img/OCV001.png" width="600"/>
 * OpenCV 모듈은 각각 별도의 *.lib 파일과  *.dll 파일로 만들어 짐 (예를 들어 OpenCV 4.0.0 버전인 경우 core 모듈은 opencv_core400.lib 파일과 opencv_core400.dll 파일이 존재)
 * <img src="./img/OCV002.PNG" width="600"/>
 

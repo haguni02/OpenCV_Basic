@@ -40,7 +40,7 @@
 > 2) 설치 폴더 지정<br/><img src="./img/OCV003.png" />
 > 3) 설치 폴더 구조<br/><img src="./img/OCV004.png" />
 > * C:\opencv\build\x64\vc15\ 
-> > * visual studion 2017 버전으로 빌드된 라이브러리 파일이 있는 폴더 사용
+> > * visual studion 2017 버전으로 빌드된 라이브러리 파일이 있는 폴더
 > > * bin 폴더에는 OpenCV 프로그램 실행 시 필요한 동적 연결 라이브러리 파일과 OpenCV 유틸리티 프로그램 생성 
 > > * lib 폴더에는 DLL 파일이 만들어질 때 함께 생성되는 import library 
 > > * 동적 연결 라이브러리 파일 이름은 opencv_world400.dll, opencv_world400d.dll(~d가 붙으면 디버그 모드에서 사용)

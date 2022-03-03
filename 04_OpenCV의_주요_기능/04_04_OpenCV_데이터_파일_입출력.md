@@ -36,6 +36,8 @@ public:
 ```
 * <img src="./img/OCV026.PNG" /> <br/> FileStorage 객체를 생성한 후에는 FileStorage::open() 함수를 이용하여 실제 사용할 파일을 열어야 함 <br/> FileStorage 클래스는 XML, YAML, JSON 형식의 파일 입출력을 지원하며, 사용할 파일 형식은 filename의 확장자에 의해 자동으로 결정
 * <img src="./img/OCV027.PNG" /> <br/> FileStorage::mode 열거형 상수 (파일 열기 모드)
+
+## 데이터 파일 저장하기
 ```cpp
 // 파일에 데이터 저장하기
 // String filename = “mydata.xml“;

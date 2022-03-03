@@ -67,3 +67,5 @@ void writeData()
  }
 ```
 * <img src="./img/OCV028.PNG" /> <br/> 코드 결과
+
+## 데이터 파일 불러오기

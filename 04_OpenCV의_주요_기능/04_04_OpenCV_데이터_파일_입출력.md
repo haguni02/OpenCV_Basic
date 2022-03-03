@@ -4,31 +4,66 @@
 ```cpp
 // 간략화한 FileStorage 클래스 정의
 class FileStorage
-02    {
-03    public:
-04        FileStorage();
-05        FileStorage(const String& filename, int flags, const String& encoding=String());
-06
+{
+public:
 
-07        virtual bool open(const String& filename, int flags,
-08                          const String& encoding=String());
-09        virtual bool isOpened() const;
-10        virtual void release();
-11
+  // FileStorage 클래스 생성자
+  FileStorage();
+  FileStorage(const String& filename, int flags, const String& encoding=String());
 
-12        FileNode operator[](const char* nodename) const;
-13        …
-14    };
-15
+  // 파일을 열고 닫을 때 사용하는 멤버 함수
+  virtual bool open(const String& filename, int flags, const String& encoding=String());
+  virtual bool isOpened() const;
+  // 해당 파일이 정상적으로 열렸는지 확인하는 함수
+  virtual void release();
 
-16    template<typename _Tp> static
-17    FileStorage& operator << (FileStorage& fs, const _Tp& value);
-18    static FileStorage& operator << (FileStorage& fs, const String& str);
-19    static FileStorage& operator << (FileStorage& fs, const char* str);
-20
+  // 	[] 연산자 재정의는 파일에서 데이터를 읽어서 FileNode 객체를 반환
+  FileNode operator[](const char* nodename) const;
+  // …(생략)
+};
+  
+  // 	<< 연산자 재정의는 파일에 데이터를 저장할 때 사용
+  template<typename _Tp> static
+  FileStorage& operator << (FileStorage& fs, const _Tp& value);
+  static FileStorage& operator << (FileStorage& fs, const String& str);
+  static FileStorage& operator << (FileStorage& fs, const char* str);
 
-21    template<typename _Tp> static
-22    void operator >> (const FileNode& n, _Tp& value)
-23    template<typename _Tp> static
-24    void operator >> (const FileNode& n, std::vector<_Tp>& vec)
+  // >> 연산자 재정의는 파일에서 데이터를 읽어 올 때 사용
+  template<typename _Tp> static
+  void operator >> (const FileNode& n, _Tp& value)
+  template<typename _Tp> static
+  void operator >> (const FileNode& n, std::vector<_Tp>& vec)
 ```
+* <img src="./img/OCV026.PNG" /> <br/> FileStorage 객체를 생성한 후에는 FileStorage::open() 함수를 이용하여 실제 사용할 파일을 열어야 함 <br/> FileStorage 클래스는 XML, YAML, JSON 형식의 파일 입출력을 지원하며, 사용할 파일 형식은 filename의 확장자에 의해 자동으로 결정
+* <img src="./img/OCV027.PNG" /> <br/> FileStorage::mode 열거형 상수 (파일 열기 모드)
+```cpp
+// 파일에 데이터 저장하기
+// String filename = “mydata.xml“;
+// String filename = “mydata.yml“;
+String filename = “mydata.json”;
+
+void writeData()
+{
+  String name = “Jane”;
+  int age = 10;
+  Point pt1(100, 200);
+  vector<int> scores = { 80, 90, 50 };
+  Mat mat1 = (Mat_<float>(2, 2) << 1.0f, 1.5f, 2.0f, 3.2f);
+
+  FileStorage fs(filename, FileStorage::WRITE);
+
+  if (!fs.isOpened()) {
+    cerr << “File open failed!” << endl;
+    return;
+  }
+
+  fs << “name” << name;
+  fs << “age” << age;
+  fs << “point” << pt1;
+  fs << “scores” << scores;
+  fs << “data” << mat1;
+
+  fs.release();
+ }
+```
+* <img src="./img/OCV028.PNG" /> <br/> 코드 결과

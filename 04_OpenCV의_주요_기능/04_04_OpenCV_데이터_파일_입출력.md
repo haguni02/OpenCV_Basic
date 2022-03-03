@@ -71,3 +71,29 @@ void writeData()
 * <img src="./img/OCV028.PNG" /> <br/> 코드 결과
 
 ## 데이터 파일 불러오기
+```cpp
+//  파일로부터 데이터 불러오기 
+void readData()
+{
+  String name;
+  int age;
+  Point pt1;
+  vector<int> scores;
+  Mat mat1;
+
+  FileStorage fs(filename, FileStorage::READ);
+
+  if (!fs.isOpened()) {
+    cerr << “File open failed!” << endl;
+    return;
+  }
+
+  fs[”name”] >> name;
+  fs[”age”] >> age;
+  fs[”point”] >> pt1;
+  fs[”scores”] >> scores;
+  fs[”data”] >> mat1;
+  
+  fs.release();
+}
+```

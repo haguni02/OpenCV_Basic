@@ -52,6 +52,7 @@ void writeData()
   vector<int> scores = { 80, 90, 50 };
   Mat mat1 = (Mat_<float>(2, 2) << 1.0f, 1.5f, 2.0f, 3.2f);
 
+  // FileStorage 생성자 쓰기모드로 생성
   FileStorage fs(filename, FileStorage::WRITE);
 
   if (!fs.isOpened()) {
@@ -59,6 +60,7 @@ void writeData()
     return;
   }
 
+  // 	<< 연산자 재정의는 파일에 데이터를 저장할 때 사용
   fs << “name” << name;
   fs << “age” << age;
   fs << “point” << pt1;
@@ -81,6 +83,7 @@ void readData()
   vector<int> scores;
   Mat mat1;
 
+  // FileStorage 생성자 읽기모드로 생성
   FileStorage fs(filename, FileStorage::READ);
 
   if (!fs.isOpened()) {
@@ -88,6 +91,8 @@ void readData()
     return;
   }
 
+  // [] 연산자 재정의는 파일에서 데이터를 읽어서 FileNode 객체를 반환
+  // >> 연산자 재정의는 파일에서 데이터를 읽어 올 때 사용
   fs[”name”] >> name;
   fs[”age”] >> age;
   fs[”point”] >> pt1;

@@ -23,7 +23,7 @@ void mask_setTo()
   destroyAllWindows();
 }
 ```
-* 코드 결과 <br/> <img src="./img/OCV029.PNG" /> 
+* 코드 결과 <br/> <img src="./img/OCV029.PNG"  width="600"/> 
 ```cpp
 // 마스크 영상을 이용하여 픽셀 값의 일부분만 복사하기
  void mask_copyTo()
@@ -48,7 +48,7 @@ void mask_setTo()
   destroyAllWindows();
 }
 ```
-* 코드 결과 <br/> <img src="./img/OCV030.PNG" /> 
+* 코드 결과 <br/> <img src="./img/OCV030.PNG" width="600"/> 
 
 ## 연산 시간 측정
 * 영상 처리 시스템은 대용량 영상 데이터를 다루고 복잡한 알고리즘 연산을 수행합니다. 여러 단계로 구성된 영상 처리 시스템을 개발하는 경우, 각 단계에서 소요되는 연산 시간을 측정하고 시간이 오래 걸리는 부분을 찾아 개선하는 시스템 최적화 작업이 필수

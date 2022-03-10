@@ -1,6 +1,7 @@
-## FileStorage 클래스
-* OpenCV에서 Mat 클래스에 저장된 영상 데이터는 imwrite() 함수를 이용하여 BMP, JPG, PNG 등 영상 파일로 저장할 수 있으나 uchar 자료형을 사용하는 영상 데이터가 아니라 int, float, double 등의 자료형을 사용하는 일반적인 행렬은 영상 파일 형식으로 저장할 수 없음
-* OpenCV에서 제공하는 FileStorage 클래스는 Mat 클래스 객체뿐만 아니라 일반적인 C/C++ 자료형 데이터를 XML, YAML, JSON 등 파일 형식으로 저장하는 기능을 제공
+## 1. FileStorage 클래스
+* OpenCV에서의 데이터 파일 입출력을 담당하는 클래스
+* Mat 클래스 객체뿐만 아니라 일반적인 C/C++ 자료형 데이터를 XML, YAML, JSON 등 파일 형식으로 저장하는 기능을 제공
+* 사용할 파일 형식은 filename의 확장자에 의해 자동으로 결정
 ```cpp
 // 간략화한 FileStorage 클래스 정의
 class FileStorage
@@ -13,13 +14,14 @@ public:
 
   // 파일을 열고 닫을 때 사용하는 멤버 함수
   virtual bool open(const String& filename, int flags, const String& encoding=String());
-  virtual bool isOpened() const;
   // 해당 파일이 정상적으로 열렸는지 확인하는 함수
+  virtual bool isOpened() const;
   virtual void release();
 
   // 	[] 연산자 재정의는 파일에서 데이터를 읽어서 FileNode 객체를 반환
   FileNode operator[](const char* nodename) const;
-  // …(생략)
+  
+  // … (생략)
 };
   
   // 	<< 연산자 재정의는 파일에 데이터를 저장할 때 사용
@@ -34,10 +36,12 @@ public:
   template<typename _Tp> static
   void operator >> (const FileNode& n, std::vector<_Tp>& vec)
 ```
-* <img src="./img/OCV026.PNG" /> <br/> FileStorage 객체를 생성한 후에는 FileStorage::open() 함수를 이용하여 실제 사용할 파일을 열어야 함 <br/> FileStorage 클래스는 XML, YAML, JSON 형식의 파일 입출력을 지원하며, 사용할 파일 형식은 filename의 확장자에 의해 자동으로 결정
-* <img src="./img/OCV027.PNG" /> <br/> FileStorage::mode 열거형 상수 (파일 열기 모드)
+* FileStorage 객체 생성자와 FileStorage::open() 멤버 함수
+<br/> <img src="./img/OCV026.PNG" /> 
+* FileStorage::mode 열거형 상수 (파일 열기 모드)
+<br/> <img src="./img/OCV027.PNG" /> 
 
-## 데이터 파일 저장하기
+## 2. 데이터 파일 저장하기
 ```cpp
 // 파일에 데이터 저장하기
 // String filename = “mydata.xml“;
@@ -70,9 +74,10 @@ void writeData()
   fs.release();
  }
 ```
-* <img src="./img/OCV028.PNG" /> <br/> 코드 결과
+* 코드 결과
+<br/> <img src="./img/OCV028.PNG" /> 
 
-## 데이터 파일 불러오기
+## 3. 데이터 파일 불러오기
 ```cpp
 //  파일로부터 데이터 불러오기 
 void readData()
